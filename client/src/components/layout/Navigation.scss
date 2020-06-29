@@ -1,0 +1,23 @@
+.nav-section {
+  justify-content: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 220px);
+}
+
+.nav-item {
+  padding: 14px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid lightgray;
+  color: lightgray;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  background-color: rgb(53, 133, 224);
+  box-shadow: 7px 7px 9px -5px #b1b1b1;
+  color: white;
+  border: 1px solid rgb(53, 133, 224);
+}

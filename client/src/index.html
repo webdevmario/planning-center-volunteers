@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Planning Center - Volunteer Email Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <div>
+
+    <!-- context based -->
+
+    <section>
+      <h4>Controls</h4>
+      <button type="button" id="btn-reset-form" name="btn-reset-form">Reset Form</button>
+    </section>
+
+    <hr>
+
+    <section>
+      <h4>Search Volunteer</h4>
+
+      <div>
+        <input type="text" id="input-search" />
+
+        <button type="button" id="btn-search">Search</button>
+      </div>
+    </section>
+
+    <section>
+
+      <h6>Results</h6>
+
+      <div>
+
+        <table id="tbl-results">
+          <thead>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td></td>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </section>
+
+    <hr>
+
+    <h4>Volunteer Assignment</h4>
+
+    <form action="">
+      <div>
+        Volunteer Name
+        <input type="text" value="" id="volunteer-name">
+      </div>
+
+      <div>
+        Volunteer Phone
+        <input type="text" value="" id="volunteer-phone">
+      </div>
+
+      <div>
+        Volunteer Email
+        <input type="text" value="" id="volunteer-email">
+      </div>
+
+      <div>
+        Team
+        <select name="" id="select-team"></select>
+      </div>
+
+      <div>
+        <button type="button" id="btn-submit">Generate Email Snippet</button>
+      </div>
+
+      <div>
+        <textarea name="txt-output" id="txt-output" cols="30" rows="10"></textarea>
+      </div>
+
+    </form>
+
+    <hr>
+
+    <!--  Leader Email  -->
+
+    <section>
+      <h4>Leader Email</h4>
+
+      <div>
+
+        <textarea name="txt-leader-email-output" id="txt-leader-email-output" cols="30" rows="10"></textarea>
+
+      </div>
+
+      <button type="button" id="btn-send-leader-email">Send Leader Email</button>
+
+    </section>
+
+    <hr>
+
+    <section>
+      <h4>Final Email</h4>
+
+      <h6>Assignments</h6>
+
+      <div>
+
+        <table id="tbl-assignments">
+          <tbody>
+
+          </tbody>
+        </table>
+
+      </div>
+
+      <textarea name="txt-email-output" id="txt-email-output" cols="30" rows="10"></textarea>
+
+      <h6>Email Preview</h6>
+
+      <div contenteditable="true" name="email-preview" id="email-preview"></div>
+
+      <button type="button" id="btn-final-email">Send Summary Email</button>
+    </section>
+
+  </div>
+
+  <!-- TODO: once a submit is performed, generate a modal with the resulting copy -->
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.23/moment-timezone-with-data-2012-2022.min.js"></script>
+
+  <script src="index.js"></script>
+  <script src="main.js" type="module"></script>
+
+</body>
+
+</html>

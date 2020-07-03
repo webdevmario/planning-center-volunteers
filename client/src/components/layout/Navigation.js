@@ -8,7 +8,10 @@ function Navigation ({ sections, changeSection }) {
     const classes = ['nav-item'];
     const location = useLocation();
 
-    if (location.pathname.includes(newClass)) {
+    if (
+      location.pathname.includes(newClass) ||
+      (location.pathname === '/' && newClass === 'search')
+    ) {
       classes.push('active');
     }
 

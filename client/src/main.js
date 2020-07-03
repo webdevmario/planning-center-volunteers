@@ -4,8 +4,8 @@
  * create another collection that stores template info with placeholders, replace with relevant info and return
  */
 
-import { clearSearchEntry } from '../modules/search.js';
-import { returnHi } from '../modules/email.js';
+// import { clearSearchEntry } from '../modules/search.js';
+// import { returnHi } from '../modules/email.js';
 
 const volunteer = document.getElementById('volunteer-name');
 const volunteerPhone = document.getElementById('volunteer-phone');
@@ -90,10 +90,10 @@ function init() {
   // const email = new Email('Johnny');
   // console.log('email get', email.getName());
 
-  console.log(returnHi('Johnny'));
+  // console.log(returnHi('Johnny'));
 
   // set up handlers
-  btnResetForm.addEventListener('click', clearSearchEntry);
+  // btnResetForm.addEventListener('click', clearSearchEntry);
 }
 
 function getApi(params) {

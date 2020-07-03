@@ -25,5 +25,6 @@
 }
 
 .card-footer {
-  border: 1px solid lightpink;
+  display: flex;
+  justify-content: space-between;
 }

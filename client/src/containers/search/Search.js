@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import './Search.scss';
+
 function Search() {
   const [results, setResults] = useState([]);
   const [searchEntry, setSearchEntry] = useState('');
@@ -116,14 +118,19 @@ function Search() {
   }
 
   return (
-    <div>
+    <div className="search-container">
 
         <input type="text" className="input" value={searchEntry} onChange={e => setSearchEntry(e.target.value)} />
 
-        <button type="button" className="button" onClick={() => searchVolunteers()}>Search</button>
-        <button type="button" className="button">Clear</button>
+        <div className="options-container">
+          <button type="button" className="button" onClick={() => searchVolunteers()}>Search</button>
+          <button type="button" className="button">Clear</button>
+        </div>
 
-        <textarea></textarea>
+
+        <div className="results-container">
+
+        </div>
 
     </div>
   )

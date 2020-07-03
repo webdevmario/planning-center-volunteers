@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import './Card.scss';
 
-import Search from '../../../containers/search/Search';
-import VolunteerEmails from '../../../containers/volunteer-emails/VolunteerEmails';
-import OtherEmails from '../../../containers/other-emails/OtherEmails';
+import Search from '../../containers/search/Search';
+import VolunteerEmails from '../../containers/volunteer-emails/VolunteerEmails';
+import OtherEmails from '../../containers/other-emails/OtherEmails';
 
 function Card ({ currSection }) {
 
@@ -18,6 +18,7 @@ function Card ({ currSection }) {
         <hr/>
         <section className="card-content">
           <Switch>
+            <Route exact path="/" component={Search}></Route>
             <Route exact path="/search" component={Search}></Route>
             <Route exact path="/volunteer-emails" component={VolunteerEmails}></Route>
             <Route exact path="/other-emails" component={OtherEmails}></Route>

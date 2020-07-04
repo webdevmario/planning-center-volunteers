@@ -1,11 +1,20 @@
-import React from 'react'
+import React from 'react';
 
-function Button() {
+import './Button.scss';
+
+function Button ({ name, action }) {
   return (
-    <div>
-
-    </div>
-  )
+    <button
+      type="button"
+      className="button"
+      onClick={() => {
+        console.log('action hit');
+        action();
+      }}
+    >
+      {name}
+    </button>
+  );
 }
 
 export default Button;

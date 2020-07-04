@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { render } from 'react-dom';
 
-import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/css/all.css';
 
 import Header from './components/layout/Header';
 import Navigation from './components/layout/Navigation';
@@ -16,7 +16,7 @@ function Main () {
   ];
   const [currSection, setCurrSection] = useState(sections[0]);
 
-  function changeSection(newSection) {
+  function changeSection (newSection) {
     setCurrSection(newSection);
   }
 

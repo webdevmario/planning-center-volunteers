@@ -43,7 +43,7 @@ const assignments = [];
 
 init();
 
-function init() {
+function init () {
   const promises = [];
 
   promises.push(getTeams(), getLeads(), getTemplates());
@@ -80,7 +80,6 @@ function init() {
 
         selectTeam.appendChild(option);
       });
-
     });
 
   btnSubmit.addEventListener('click', submitForm);
@@ -96,8 +95,7 @@ function init() {
   // btnResetForm.addEventListener('click', clearSearchEntry);
 }
 
-function getApi(params) {
-
+function getApi (params) {
   let url = 'http://localhost:4000/church';
 
   if (params) {
@@ -108,19 +106,19 @@ function getApi(params) {
   return axios.get(url);
 }
 
-function getTeams() {
-  return axios.get('http://localhost:4000/teams')
+function getTeams () {
+  return axios.get('http://localhost:4000/teams');
 }
 
-function getLeads() {
+function getLeads () {
   return axios.get('http://localhost:4000/leads');
 }
 
-function getTemplates() {
-  return axios.get("http://localhost:4000/templates");
+function getTemplates () {
+  return axios.get('http://localhost:4000/templates');
 }
 
-function searchPeople() {
+function searchPeople () {
   // get name provided
   console.log('name', inputSearch.value);
 
@@ -142,7 +140,6 @@ function searchPeople() {
       console.log('data 1', data);
 
       data.forEach(person => {
-
         const record = {
           id: person.id,
           link: person.links.self,
@@ -160,72 +157,70 @@ function searchPeople() {
         record.email = record.email.map(
           emailId => included.find(item => item.id === emailId).attributes
         ).filter(email => email.primary)
-        .map(email => email.address)[0];
+          .map(email => email.address)[0];
 
         record.phoneNumber = record.phoneNumber.map(
           phoneId => included.find(item => item.id === phoneId).attributes
         ).filter(phone => phone.primary)
-        .map(phone => phone.number)[0];
+          .map(phone => phone.number)[0];
 
         results.push(record);
       });
 
-      console.log("results", results);
+      console.log('results', results);
 
       // tblResults
-      const tableRef = tblResults.getElementsByTagName("tbody")[0];
+      const tableRef = tblResults.getElementsByTagName('tbody')[0];
 
       results.forEach(result => {
+        var newRow = tableRef.insertRow();
 
-      var newRow = tableRef.insertRow();
+        // Insert a cell in the row at index 0
+        var newCell1 = newRow.insertCell();
 
-      // Insert a cell in the row at index 0
-      var newCell1 = newRow.insertCell();
+        // Append a text node to the cell
+        var newText1 = document.createTextNode(result.firstName + ' ' + result.lastName);
+        newCell1.appendChild(newText1);
 
-      // Append a text node to the cell
-      var newText1 = document.createTextNode(result.firstName + ' ' + result.lastName);
-      newCell1.appendChild(newText1);
+        // Insert a cell in the row at index 0
+        var newCell2 = newRow.insertCell();
 
-            // Insert a cell in the row at index 0
-      var newCell2 = newRow.insertCell();
+        // Append a text node to the cell
+        var newText2 = document.createTextNode(result.email);
+        newCell2.appendChild(newText2);
 
-      // Append a text node to the cell
-      var newText2 = document.createTextNode(result.email);
-      newCell2.appendChild(newText2);
+        // Insert a cell in the row at index 0
+        var newCell3 = newRow.insertCell();
 
-                  // Insert a cell in the row at index 0
-      var newCell3 = newRow.insertCell();
+        // Append a text node to the cell
+        var newText3 = document.createTextNode(result.phoneNumber);
+        newCell3.appendChild(newText3);
 
-      // Append a text node to the cell
-      var newText3 = document.createTextNode(result.phoneNumber);
-      newCell3.appendChild(newText3);
+        // Insert a cell in the row at index 0
+        var newCell4 = newRow.insertCell();
 
-                  // Insert a cell in the row at index 0
-      var newCell4 = newRow.insertCell();
-
-      // Append a text node to the cell
-      var newText4 = document.createElement('input');
-      newText4.setAttribute('type', 'checkbox');
-      newText4.setAttribute('id', 'inputChk');
-      newText4.setAttribute('value', result.id);
-      newText4.onclick = function() {
+        // Append a text node to the cell
+        var newText4 = document.createElement('input');
+        newText4.setAttribute('type', 'checkbox');
+        newText4.setAttribute('id', 'inputChk');
+        newText4.setAttribute('value', result.id);
+        newText4.onclick = function () {
         // console.log(this.value);
 
-        const selectedVal = this.value;
-        const selectedPerson = results.find(person => person.id === selectedVal);
+          const selectedVal = this.value;
+          const selectedPerson = results.find(person => person.id === selectedVal);
 
-        console.log(selectedPerson);
+          console.log(selectedPerson);
 
-        volunteer.value = selectedPerson.firstName + ' ' + selectedPerson.lastName;
-        volunteerPhone.value = selectedPerson.phoneNumber;
-        volunteerEmail.value = selectedPerson.email;
-      }
-      newCell4.appendChild(newText4);
-
+          volunteer.value = selectedPerson.firstName + ' ' + selectedPerson.lastName;
+          volunteerPhone.value = selectedPerson.phoneNumber;
+          volunteerEmail.value = selectedPerson.email;
+        };
+        newCell4.appendChild(newText4);
       });
     })
     .catch(err => {
-      console.error("err", err.message);
+      console.error('err', err.message);
     });
 }
 
@@ -234,7 +229,7 @@ function searchPeople() {
  * submit initial form to create assigment email snippet (step 1)
  */
 
-function submitForm() {
+function submitForm () {
   // get name and get dd selection
 
   console.log('volunteer name', volunteer.value);
@@ -271,7 +266,7 @@ function submitForm() {
   console.log('new template', selectedTemplate);
   console.log('start email');
 
-  var items = 'Hi Frank, here are the latest workflows added:'
+  var items = 'Hi Frank, here are the latest workflows added:';
 
   // window.open('mailto:franke@gmail.com?subject=Latest Workflows&body=' + items);
 
@@ -327,7 +322,7 @@ function replaceAt (tag, copy, startIdx, endIdx) {
   return copy.substr(0, startIdx) + tag + copy.substr(endIdx, copy.length);
 }
 
-function sortName(a, b) {
+function sortName (a, b) {
   var nameA = a.name.toUpperCase(); // ignore upper and lowercase
   var nameB = b.name.toUpperCase(); // ignore upper and lowercase
   if (nameA < nameB) {
@@ -341,7 +336,7 @@ function sortName(a, b) {
   return 0;
 }
 
-function sortColor(a, b) {
+function sortColor (a, b) {
   var nameA = a.color.toUpperCase(); // ignore upper and lowercase
   var nameB = b.color.toUpperCase(); // ignore upper and lowercase
   if (nameA < nameB) {
@@ -355,17 +350,17 @@ function sortColor(a, b) {
   return 0;
 }
 
-function sortTime(a, b) {
+function sortTime (a, b) {
   return a.time - b.time;
 }
 
-function sendEmail() {
-  axios.post("http://localhost:4000/email");
+function sendEmail () {
+  axios.post('http://localhost:4000/email');
 }
 
 // specify a table
 // specify onclick handler
-function setTableElement(elem, results, onclick) {
+function setTableElement (elem, results, onclick) {
   const tableRef = elem.getElementsByTagName('tbody')[0];
 
   console.log('data results', results);
@@ -405,7 +400,7 @@ function setTableElement(elem, results, onclick) {
 
 // check if template has anything, if not, add base
 // loop through each volunteer and add to body
-function updateTemplate() {
+function updateTemplate () {
   setTableElement(tblAssignments, assignments);
 
   const base = 'Hi Frank,<br>Here are the latest workflows added:<br>';
@@ -415,7 +410,7 @@ function updateTemplate() {
   }
 
   assignments.forEach(assignment => {
-    var entry = assignment.volunteerName + ' ' + assignment.teamName + ' ' + assignment.color + ' ' + assignment.time + ' ' + assignment.campus
+    var entry = assignment.volunteerName + ' ' + assignment.teamName + ' ' + assignment.color + ' ' + assignment.time + ' ' + assignment.campus;
 
     txtEmailOutput.value += entry;
   });

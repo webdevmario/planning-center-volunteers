@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './Navigation.scss';
 
 function Navigation ({ sections, changeSection }) {
-  function setClasses(newClass) {
+  function setClasses (newClass) {
     const classes = ['nav-item'];
     const location = useLocation();
 
